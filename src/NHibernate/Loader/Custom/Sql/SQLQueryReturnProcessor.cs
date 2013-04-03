@@ -219,7 +219,7 @@ namespace NHibernate.Loader.Custom.Sql
 			alias2CollectionSuffix[alias] = suffix;
 			collectionPropertyResultMaps[alias] = propertyResults;
 
-			if (collectionPersister.IsOneToMany)
+			if (collectionPersister.IsOneToMany || collectionPersister.IsManyToMany)
 			{
 				ISqlLoadable persister = (ISqlLoadable) collectionPersister.ElementPersister;
 				AddPersister(alias, Filter(propertyResults), persister);
